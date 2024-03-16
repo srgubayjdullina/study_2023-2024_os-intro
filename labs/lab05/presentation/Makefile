@@ -15,10 +15,10 @@ PDF_OPTIONS += --number-sections
 REVEALJS_THEME = beige
 
 %.pdf: %.md
-	-pandoc "$<" $(FILTERS) $(PDF_ENGINE) $(PDF_OPTIONS)$(BIB_OPTIONS) $(FORMAT_OPTIONS)$(OPTIONS) -o "$@"
+	-@pandoc "$<" $(FILTERS) $(PDF_ENGINE) $(PDF_OPTIONS)$(BIB_OPTIONS)$(FORMAT_OPTIONS)$(OPTIONS) -o "$@"
 
 %.html: %.md
-	-pandoc "$<" --embed-resources --standalone -t revealjs -V theme=$(REVEALJS_THEME) -o "$@"
+	-@pandoc "$<" --embed-resources --standalone -t revealjs -V theme=$(REVEALJS_THEME) -o "$@"
 
 all: $(FILES)
 
